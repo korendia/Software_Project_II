@@ -5,7 +5,7 @@
 #define PIN_TRIG 12
 #define PIN_ECHO 13
 
-#define ANGLE_DOWN 30
+#define ANGLE_DOWN 0
 #define ANGLE_UP 90
 #define DISTANCE_THRESHOLD 25
 
