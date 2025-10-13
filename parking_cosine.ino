@@ -10,7 +10,7 @@
 #define DISTANCE_THRESHOLD 25
 
 Servo myServo;
-unsigned long MOVING_TIME = 1500;
+unsigned long MOVING_TIME = 3000;
 unsigned long moveStartTime = 0;
 
 int startAngle = ANGLE_DOWN;
