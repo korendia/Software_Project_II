@@ -1,3 +1,6 @@
+//10C16 제출용 코드
+//Cosine 함수 사용버전.
+
 #include <Servo.h>
 #include <math.h>
 
