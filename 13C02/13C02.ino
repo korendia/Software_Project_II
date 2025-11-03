@@ -13,8 +13,8 @@ void slowMove(float speed, int startAngle, int endAngle) {
     
     int step = (endAngle > startAngle) ? 1 : -1;
 
-    for (int pos = startAngle; pos != endAngle; pos += step) {
-        myServo.write(pos);
+    for (int i = startAngle; i != endAngle; i += step) {
+        myServo.write(i);
         delay(timeDelay_ms);
     }
     myServo.write(endAngle);
