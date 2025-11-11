@@ -6,14 +6,14 @@
 #define PIN_LED   9
 #define PIN_SERVO 10
 
-#define _DUTY_MIN 1000  // servo full clock-wise position (0 degree)
-#define _DUTY_NEU 1500  // servo neutral position (90 degree)
-#define _DUTY_MAX 2000  // servo full counter-clockwise position (180 degree)
+#define _DUTY_MIN 544  // servo full clock-wise position (0 degree)
+#define _DUTY_NEU 1480  // servo neutral position (90 degree)
+#define _DUTY_MAX 2690  // servo full counter-clockwise position (180 degree)
 
 #define _DIST_MIN  100.0   // minimum distance 100mm
 #define _DIST_MAX  250.0   // maximum distance 250mm
 
-#define EMA_ALPHA  0.3      // for EMA Filter
+#define EMA_ALPHA  0.1      // for EMA Filter
 
 #define LOOP_INTERVAL 20   // Loop Interval (unit: msec)
 
@@ -45,16 +45,16 @@ void loop()
   last_loop_time += LOOP_INTERVAL;
 
   a_value = analogRead(PIN_IR);
-  dist_raw = ((6762.0 / (a_value - 9)) - 4.0) * 10.0- 60.0;
+  dist_raw = ((6762.0 / (a_value - 9)) - 4.0) * 10.0 -60.0;
 
   if (dist_raw >= _DIST_MIN && dist_raw <= _DIST_MAX)
   { 
-    digitalWrite(PIN_LED, HIGH); // 범위 내이면 LED 켜기
+    digitalWrite(PIN_LED, LOW); // 범위 내이면 LED 켜기
     dist_prev = dist_raw;        // 유효한 거리 값으로 업데이트
   }
   else
   {
-    digitalWrite(PIN_LED, LOW);  // 범위 밖이면 LED 끄기
+    digitalWrite(PIN_LED, HIGH);  // 범위 밖이면 LED 끄기
   }
   dist_ema = (EMA_ALPHA * dist_prev) + ((1.0 - EMA_ALPHA) * dist_ema);
       
